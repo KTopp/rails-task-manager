@@ -1,0 +1,13 @@
+<h1><%= @task.title %></h1>
+<div>
+  <h4><%= @task.details %></h4>
+  <ul style="list-style: none">
+    <li>
+      <%= check_box_tag "task_#{@task.id}", @task.id, @task.completed, class: "form-check-input" %>
+      <%= @task.completed == true ? "this task is completed" : "this task has not yet been completed" %>
+    </li>
+  </ul>
+  <%= link_to "update task", edit_path %>
+  <%= link_to "Delete", delete_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%= link_to "Back to list", root_path %>
+</div>
